@@ -221,7 +221,7 @@ final class TermuxPreferences {
             mDefaultWorkingDir = TermuxService.HOME_PATH;
         }
 
-        String defaultExtraKeys = "[[ESC, TAB, CTRL, ALT, {key: '-', popup: '|'}, DOWN, UP]]";
+        String defaultExtraKeys = "[['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]";
 
         try {
             String extrakeyProp = props.getProperty("extra-keys", defaultExtraKeys);
