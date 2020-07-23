@@ -10,6 +10,7 @@ android {
         implementation "androidx.annotation:annotation:1.1.0"
         implementation "androidx.viewpager:viewpager:1.0.0"
         implementation "androidx.drawerlayout:drawerlayout:1.1.1"
+        coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:1.0.9'
         implementation project(":terminal-view")
     }
 
@@ -19,10 +20,11 @@ android {
         targetSdkVersion project.properties.targetSdkVersion.toInteger()
         versionCode 108
         versionName "0.108-dev"
+        multiDexEnabled true
 
         externalNativeBuild {
             ndkBuild {
-                cFlags "-std=c11", "-Wall", "-Wextra", "-Werror", "-Os", "-fno-stack-protector", "-Wl,--gc-sections"
+                cFlags "-std=c11", "-Wall", "-Wextra", "-Werror", "-fuse-ld=lld",  "-O3", "-fno-stack-protector", "-Wl,--gc-sections"
             }
         }
 
@@ -54,6 +56,7 @@ android {
     }
 
     compileOptions {
+        coreLibraryDesugaringEnabled true
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
