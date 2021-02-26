@@ -19,7 +19,7 @@ jobs:
         ./gradlew assembleRelease
     - name: Publish libraries on Github Packages
       env:
-        GH_USERNAME: xeffyr
+        GH_USERNAME: najahiiii
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
         ./gradlew publish
